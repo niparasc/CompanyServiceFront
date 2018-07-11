@@ -1,3 +1,27 @@
-<p>
-  company works!
-</p>
+<h2>{{company.name}}</h2>
+
+<table>
+  <tbody>
+    <tr><td>id:</td><td>{{company.id}}</td></tr>
+    <tr><td>name:</td><td>{{company.name}}</td></tr>
+    <tr><td>address:</td><td>{{company.address}}</td></tr>
+    <tr><td>city:</td><td>{{company.city}}</td></tr>
+    <tr><td>country:</td><td>{{company.country}}</td></tr>
+    <tr><td>email:</td><td>{{company.email}}</td></tr>
+    <tr><td>phone:</td><td>{{company.phone}}</td></tr>
+    <tr>
+      <td>beneficial owners:</td>
+      <td>
+          <table>
+            <thead>
+              <tr>
+                <td *ngFor="let owner of company.beneficialOwners">
+                  <a routerLink="/beneficialOwners/{{owner.id}}">{{owner.firstName}} {{owner.lastName}}</a>
+                </td>
+              </tr>
+            </thead>
+          </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

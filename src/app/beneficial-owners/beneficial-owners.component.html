@@ -1,0 +1,9 @@
+<h2>Beneficial Owners</h2>
+
+<button routerLink="/beneficialOwnerCreate">Create</button>
+
+<ul>
+  <li *ngFor="let owner of beneficialOwners">
+    <a routerLink="/beneficialOwners/{{owner.id}}">{{owner.firstName}} {{owner.lastName}}</a>
+  </li>
+</ul>

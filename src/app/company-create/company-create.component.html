@@ -1,0 +1,19 @@
+<h2>Create Company</h2>
+
+<div>
+    <label>name:</label><br><input [(ngModel)]="company.name" /><br>
+    <label>address:</label><br><input [(ngModel)]="company.address" /><br>
+    <label>city:</label><br><input [(ngModel)]="company.city" /><br>
+    <label>country:</label><br><input [(ngModel)]="company.country" /><br>
+    <label>email:</label><br><input [(ngModel)]="company.email" /><br>
+    <label>phone:</label><br><input [(ngModel)]="company.phone" /><br>
+    <label>beneficial owners:</label><br>
+    <select multiple [(ngModel)]="company.beneficialOwners">
+      <option *ngFor="let owner of beneficialOwners" value=owner.id>{{owner.firstName}} {{owner.lastName}}</option>
+    </select>
+    <br>
+    <br>
+    <button (click)="save();">
+      Save
+    </button>
+  </div>
