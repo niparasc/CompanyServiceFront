@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { COMPANIES } from '../mocks/mock-companies';
 
 @Component({
   selector: 'app-companies',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./companies.component.css']
 })
 export class CompaniesComponent implements OnInit {
+
+  companies = COMPANIES;
 
   constructor() { }
 

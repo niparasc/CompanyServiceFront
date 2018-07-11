@@ -1,3 +1,5 @@
+import { BeneficialOwner } from './BeneficialOwner';
+
 export class Company {
     id: number;
     name: string;
@@ -6,5 +8,5 @@ export class Company {
     country: string;
     email: string;
     phone: string;
-    // array of BeneficialOwner here
+    beneficialOwners: BeneficialOwner[];
 }

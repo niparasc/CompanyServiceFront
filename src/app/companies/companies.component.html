@@ -1,3 +1,9 @@
-<p>
-  companies works!
-</p>
+<h2>Companies</h2>
+
+<button href="#">Create</button>
+
+<ul>
+  <li *ngFor="let company of companies">
+    <a href="#">{{company.name}}</a>
+  </li>
+</ul>
