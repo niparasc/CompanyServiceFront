@@ -1,0 +1,10 @@
+<h2>Add Owner to {{company.name}}</h2>
+
+<select [(ngModel)]="beneficialOwners">
+  <option *ngFor="let owner of beneficialOwners" value=owner.id>{{owner.firstName}} {{owner.lastName}}</option>
+</select>
+<br>
+<br>
+<button (click)="save();">
+  Save
+</button>

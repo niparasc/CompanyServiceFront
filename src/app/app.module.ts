@@ -11,6 +11,8 @@ import { CompanyCreateComponent } from './company-create/company-create.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BeneficialOwnersComponent } from './beneficial-owners/beneficial-owners.component';
 import { BeneficialOwnerCreateComponent } from './beneficial-owner-create/beneficial-owner-create.component';
+import { CompanyUpdateComponent } from './company-update/company-update.component';
+import { CompanyAddOwnerComponent } from './company-add-owner/company-add-owner.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { BeneficialOwnerCreateComponent } from './beneficial-owner-create/benefi
     CompanyCreateComponent,
     DashboardComponent,
     BeneficialOwnersComponent,
-    BeneficialOwnerCreateComponent
+    BeneficialOwnerCreateComponent,
+    CompanyUpdateComponent,
+    CompanyAddOwnerComponent
   ],
   imports: [
     BrowserModule,

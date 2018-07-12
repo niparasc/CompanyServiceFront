@@ -1,0 +1,14 @@
+<h2>Update Company [{{company.name}}]</h2>
+
+<div>
+    <label>name:</label><br><input [(ngModel)]="company.name" /><br>
+    <label>address:</label><br><input [(ngModel)]="company.address" /><br>
+    <label>city:</label><br><input [(ngModel)]="company.city" /><br>
+    <label>country:</label><br><input [(ngModel)]="company.country" /><br>
+    <label>email:</label><br><input [(ngModel)]="company.email" /><br>
+    <label>phone:</label><br><input [(ngModel)]="company.phone" /><br>
+    <br>
+    <button (click)="save();">
+      Save
+    </button>
+  </div>
