@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { BeneficialOwner } from './domain/beneficialOwner';
-import { OWNERS } from './mocks/mock-beneficialOwners';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BeneficialOwnerService {
 
-  constructor() { }
+  // private ownersUrl = 'https://mighty-caverns-62961.herokuapp.com/beneficialOwners';
+  private ownersUrl = 'http://localhost:8080/beneficialOwners';
+
+  constructor(private http: HttpClient) { }
 
   getBeneficialOwners(): Observable<BeneficialOwner[]> {
-    return of(OWNERS);
-  }
-
-  getBeneficialOwner(id: number): Observable<BeneficialOwner> {
-    return of(OWNERS.find(owner => owner.id === id));
+    return this.http.get<BeneficialOwner[]>(this.ownersUrl);
   }
 
 }

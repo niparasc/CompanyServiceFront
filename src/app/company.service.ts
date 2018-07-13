@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
-import { COMPANIES } from './mocks/mock-companies';
 import { Observable, of } from 'rxjs';
 import { Company } from './domain/company';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
 
-  constructor() { }
+  // private companiesUrl = 'https://mighty-caverns-62961.herokuapp.com/companies';
+  private companiesUrl = 'http://localhost:8080/companies';
+
+  constructor(private http: HttpClient) { }
 
   getCompanies(): Observable<Company[]> {
-    return of(COMPANIES);
+    return this.http.get<Company[]>(this.companiesUrl);
   }
 
   getCompany(id: number): Observable<Company> {
-    return of(COMPANIES.find(company => company.id === id));
+    const url = `${this.companiesUrl}/${id}`;
+    return this.http.get<Company>(url);
   }
 
 }

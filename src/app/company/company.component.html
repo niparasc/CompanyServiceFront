@@ -21,7 +21,7 @@
             <thead>
               <tr>
                 <td *ngFor="let owner of company.beneficialOwners">
-                  <a routerLink="/beneficialOwners/{{owner.id}}">{{owner.firstName}} {{owner.lastName}}</a>
+                  {{owner.firstName}} {{owner.lastName}} |
                 </td>
               </tr>
             </thead>

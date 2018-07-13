@@ -20,6 +20,7 @@ export class CompanyComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.company = { id: undefined, name: undefined, address: undefined, city: undefined, country: undefined, email: undefined, phone: undefined, beneficialOwners: undefined };
     this.getCompany();
   }
 

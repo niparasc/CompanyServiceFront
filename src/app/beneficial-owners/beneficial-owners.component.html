@@ -4,6 +4,6 @@
 
 <ul>
   <li *ngFor="let owner of beneficialOwners">
-    <a routerLink="/beneficialOwners/{{owner.id}}">{{owner.firstName}} {{owner.lastName}}</a>
+    {{owner.firstName}} {{owner.lastName}}
   </li>
 </ul>
