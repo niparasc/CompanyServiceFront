@@ -1,14 +1,47 @@
 <h2>Create Company</h2>
 
 <div>
-    <label>name:</label><br><input [(ngModel)]="company.name" /><br>
-    <label>address:</label><br><input [(ngModel)]="company.address" /><br>
-    <label>city:</label><br><input [(ngModel)]="company.city" /><br>
-    <label>country:</label><br><input [(ngModel)]="company.country" /><br>
-    <label>email:</label><br><input [(ngModel)]="company.email" /><br>
-    <label>phone:</label><br><input [(ngModel)]="company.phone" /><br>
+    <label>Name:</label>
     <br>
-    <button (click)="save();">
-      Save
+    <div *ngIf='errors.name'><span class='validationError'>{{errors.name}}</span></div>
+    <input [(ngModel)]="company.name" /><br>
+
+    <label>Address:</label>
+    <br>
+    <div *ngIf='errors.address'><span class='validationError'>{{errors.address}}</span></div>
+    <input [(ngModel)]="company.address" /><br>
+    
+    <label>City:</label>
+    <br>
+    <div *ngIf='errors.city'><span class='validationError'>{{errors.city}}</span></div>
+    <input [(ngModel)]="company.city" /><br>
+    
+    <label>Country:</label>
+    <br>
+    <div *ngIf='errors.country'><span class='validationError'>{{errors.country}}</span></div>
+    <input [(ngModel)]="company.country" /><br>
+    
+    <label>Email:</label>
+    <br>
+    <div *ngIf='errors.email'><span class='validationError'>{{errors.email}}</span></div>
+    <input [(ngModel)]="company.email" /><br>
+    
+    <label>Phone:</label>
+    <br>
+    <div *ngIf='errors.phone'><span class='validationError'>{{errors.phone}}</span></div>
+    <input [(ngModel)]="company.phone" /><br>
+    
+    <label>Beneficial Owners:</label>
+    <br>
+    <div *ngIf='errors.beneficialOwners'><span class='validationError'>{{errors.beneficialOwners}}</span></div>
+    <select multiple [(ngModel)]="company.beneficialOwners">
+      <option *ngFor="let owner of beneficialOwners" [ngValue]="owner">{{owner.firstName}} {{owner.lastName}}</option>
+    </select>
+    <br>
+
+    <br>
+    
+    <button (click)="createCompany();">
+      Create
     </button>
   </div>

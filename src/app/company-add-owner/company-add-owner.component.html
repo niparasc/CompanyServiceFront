@@ -1,11 +1,14 @@
 <h2>Add Owner to {{company.name}}</h2>
 
-<select>
+<label>Beneficial Owners:</label>
+<br>
+<div *ngIf='errors.beneficialOwners'><span class='validationError'>{{errors.beneficialOwners}}</span></div>
+<select [(ngModel)]="selectedOwner">
   <option></option>
-  <option *ngFor="let owner of beneficialOwners" value={{owner.id}}>{{owner.firstName}} {{owner.lastName}}</option>
+  <option *ngFor="let owner of beneficialOwners" [ngValue]="owner">{{owner.firstName}} {{owner.lastName}}</option>
 </select>
 <br>
 <br>
-<button (click)="save();">
-  Save
+<button (click)="addOwner();">
+  Add
 </button>

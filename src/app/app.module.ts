@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { CompanyComponent } from './company/company.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { BeneficialOwnerComponent } from './beneficial-owner/beneficial-owner.component';
 import { CompanyCreateComponent } from './company-create/company-create.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BeneficialOwnersComponent } from './beneficial-owners/beneficial-owners.component';
@@ -20,7 +19,6 @@ import { CompanyAddOwnerComponent } from './company-add-owner/company-add-owner.
     AppComponent,
     CompaniesComponent,
     CompanyComponent,
-    BeneficialOwnerComponent,
     CompanyCreateComponent,
     DashboardComponent,
     BeneficialOwnersComponent,

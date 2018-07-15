@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { CompanyService } from '../company.service';
 import { Company } from '../domain/company';
 import { BeneficialOwnerService } from '../beneficial-owner.service';
 import { BeneficialOwner } from '../domain/beneficialOwner';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-company-add-owner',
@@ -15,18 +15,22 @@ export class CompanyAddOwnerComponent implements OnInit {
 
   company: Company
   beneficialOwners: BeneficialOwner[];
+  selectedOwner: BeneficialOwner;
+  errors;
 
   constructor(
     private route: ActivatedRoute,
     private companyService: CompanyService,
-    private location: Location,
-    private beneficialOwnerService: BeneficialOwnerService
+    private beneficialOwnerService: BeneficialOwnerService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    this.company = { id: undefined, name: undefined, address: undefined, city: undefined, country: undefined, email: undefined, phone: undefined, beneficialOwners: undefined };
+    this.errors = {};
+    this.company = new Company();
     this.getCompany();
     this.getBeneficialOwners();
+    this.selectedOwner = new BeneficialOwner();
   }
 
   getCompany(): void {
@@ -38,6 +42,17 @@ export class CompanyAddOwnerComponent implements OnInit {
   getBeneficialOwners(): void {
     this.beneficialOwnerService.getBeneficialOwners()
       .subscribe(beneficialOwners => this.beneficialOwners = beneficialOwners);
+  }
+
+  addOwner(): void {
+    if (!this.selectedOwner.id) {
+      this.errors = {beneficialOwners: "You must select an owner"};
+      return;
+    }
+
+    this.companyService.addOwnersToCompany(this.company, {"beneficialOwnerIds": [this.selectedOwner.id]})
+                       .subscribe(company => this.router.navigate(['/companies/' + this.company.id]),
+                                  error => this.errors = error.error.response);
   }
 
 }

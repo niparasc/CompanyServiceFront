@@ -1,10 +1,19 @@
 <h2>Create Beneficial Owner</h2>
 
 <div>
-    <label>first name:</label><br><input [(ngModel)]="beneficialOwner.firstName" /><br>
-    <label>last name:</label><br><input [(ngModel)]="beneficialOwner.lastName" /><br>
+    <label>First Name:</label>
     <br>
-    <button (click)="save();">
-      Save
+    <div *ngIf='errors.firstName'><span class='validationError'>{{errors.firstName}}</span></div>
+    <input [(ngModel)]="beneficialOwner.firstName" /><br>
+
+    <label>Last Name:</label>
+    <br>
+    <div *ngIf='errors.lastName'><span class='validationError'>{{errors.lastName}}</span></div>
+    <input [(ngModel)]="beneficialOwner.lastName" /><br>
+
+    <br>
+    
+    <button (click)="createBeneficialOwner();">
+      Create
     </button>
   </div>

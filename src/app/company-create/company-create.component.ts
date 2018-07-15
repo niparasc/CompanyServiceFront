@@ -3,6 +3,7 @@ import { Company } from '../domain/company';
 import { BeneficialOwner } from '../domain/beneficialOwner';
 import { CompanyService } from '../company.service';
 import { BeneficialOwnerService } from '../beneficial-owner.service'
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-company-create',
@@ -11,14 +12,17 @@ import { BeneficialOwnerService } from '../beneficial-owner.service'
 })
 export class CompanyCreateComponent implements OnInit {
 
-  company: Company
+  company: Company;
   beneficialOwners: BeneficialOwner[];
+  errors;
 
   constructor(private companyService: CompanyService,
-              private beneficialOwnerService: BeneficialOwnerService) { }
+              private beneficialOwnerService: BeneficialOwnerService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.company = { id: undefined, name: undefined, address: undefined, city: undefined, country: undefined, email: undefined, phone: undefined, beneficialOwners: undefined };
+    this.errors = {};
+    this.company = new Company();
     this.getBeneficialOwners();
   }
 
@@ -27,8 +31,10 @@ export class CompanyCreateComponent implements OnInit {
       .subscribe(owners => this.beneficialOwners = owners);
   }
 
-  save() {
-
+  createCompany() {
+    this.companyService.createCompany(this.company)
+    .subscribe(company => this.router.navigate(['/companies']), 
+               error => this.errors = error.error.response);
   }
 
 }
