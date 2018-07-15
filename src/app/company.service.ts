@@ -9,7 +9,7 @@ import { BeneficialOwner } from './domain/BeneficialOwner';
 })
 export class CompanyService {
 
-  private companiesUrl = 'http://localhost:8080/companies';
+  private companiesUrl = 'https://mighty-caverns-62961.herokuapp.com/companies';
 
   constructor(private http: HttpClient) { }
 

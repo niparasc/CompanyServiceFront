@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class BeneficialOwnerService {
 
-  private ownersUrl = 'http://localhost:8080/beneficialOwners';
+  private ownersUrl = 'https://mighty-caverns-62961.herokuapp.com/beneficialOwners';
 
   constructor(private http: HttpClient) { }
 
